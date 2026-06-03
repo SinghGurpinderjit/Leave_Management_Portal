@@ -120,17 +120,17 @@ cd <repository-folder>
 
 ## Run the Application
 
-Build and start all services:
-docker compose up --build
+1) Go to docker-compose.yml file path
+2) Run below command to build and start all services:
+   docker compose up --build
+3) Preffered to run above (step 2) command in detached mode:
+   docker compose up -d --build
 
-Run in detached mode:
-docker compose up -d --build
 
-Stop all services:
-docker compose down
-
-Remove containers and volumes:
-docker compose down -v
+You can stop all running application services using below command:
+   - docker compose down
+   - Remove containers and volumes:
+      docker compose down -v
 
 ## Access URLs
 
