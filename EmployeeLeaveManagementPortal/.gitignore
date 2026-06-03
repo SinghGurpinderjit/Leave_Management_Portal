@@ -1,0 +1,9 @@
+# Target directories (Build outputs)
+bin/
+obj/
+out/
+
+# Visual Studio files
+.vs/
+*.userosscache
+*.sln.docstates
