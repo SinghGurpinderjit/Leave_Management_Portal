@@ -1,0 +1,389 @@
+{
+  "_comment": "Ocelot Gateway Configuration - Leave Management System",
+  "_services": "UserService (user-service:8080) | LeaveManagementService (leaves-service:8080)",
+  "_auth": "All routes except /api/users/login require Bearer JWT token",
+  "Routes": [
+    {
+      "_comment": "POST /api/users/login - Public: no auth required",
+      "DownstreamPathTemplate": "/api/users/login",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/users/login",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "_comment": "GET /api/users - Get all users",
+      "DownstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+      }
+    },
+    {
+      "_comment": "POST /api/users - Create user",
+      "DownstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "_comment": "GET /api/users/{userId} - Get user by ID",
+      "DownstreamPathTemplate": "/api/users/{userId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/users/{userId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "Key": "get-user-by-id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/users/team-members - Get logged-in user's own team (recursive hierarchy)",
+      "DownstreamPathTemplate": "/api/users/team-members",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/users/team-members",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/users/{userId}/team-members - Get another user's team (manager hierarchy check enforced in service)",
+      "DownstreamPathTemplate": "/api/users/{userId}/team-members",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/users/{userId}/team-members",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/roles - Get all roles",
+      "DownstreamPathTemplate": "/api/roles",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/roles",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/roles/{id} - Get role by ID",
+      "DownstreamPathTemplate": "/api/roles/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "USER-SERVICE",
+      "UpstreamPathTemplate": "/api/roles/{id}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {}
+    },
+    {
+      "_comment": "POST /api/v1/leave - Employee applies for leave",
+      "DownstreamPathTemplate": "/api/v1/leaves",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/apply",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {}
+    },
+    {
+      "_comment": "GET /api/v1/leaves/history - Logged in Employee views own leave history (paginated + filtered)",
+      "DownstreamPathTemplate": "/api/v1/leaves/history",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/history",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "PATCH /api/v1/leaves/{leaveRequestId}/cancel - Logged in Employee cancels own pending request",
+      "DownstreamPathTemplate": "/api/v1/leaves/{leaveRequestId}/cancel",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/{leaveRequestId}/cancel",
+      "UpstreamHttpMethod": [
+        "Patch"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leaves/team - Manager views team leave requests by employee id (paginated + filtered by status/employeeId/FromDate/ToDate/Page/PageSize)",
+      "DownstreamPathTemplate": "/api/v1/leaves/team?employeeId={userId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/team/{userId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "Key": "get-team-leave-requests-by-userId",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "user_role": "Manager"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leaves/team - Manager views all team leave requests (paginated + filtered by status/employeeId/FromDate/ToDate/Page/PageSize)",
+      "DownstreamPathTemplate": "/api/v1/leaves/team",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/team",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "user_role": "Manager"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leaves/{leaveRequestId}/team - Manager gets single team member's leave request",
+      "DownstreamPathTemplate": "/api/v1/leaves/{leaveRequestId}/team",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/{leaveRequestId}/team",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "user_role": "Manager"
+      }
+    },
+    {
+      "_comment": "PATCH /api/v1/leaves/{leaveRequestId}/status - Manager approves or rejects. On approve: deducts balance + fires notification. On reject: stores ReviewReason + fires notification.",
+      "DownstreamPathTemplate": "/api/v1/leaves/{leaveRequestId}/status",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leaves/{leaveRequestId}/status",
+      "UpstreamHttpMethod": [
+        "Patch"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "user_role": "Manager"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leave-balance - Logged in employee can view its own leave balances (Sick/Casual/Privilege: allocated/used/remaining)",
+      "DownstreamPathTemplate": "/api/v1/leave-balance",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leave-balance",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leave-balance - Logged in employee can view its leave balances by leave type (Sick/Casual/Privilege: allocated/used/remaining) by leave type id",
+      "DownstreamPathTemplate": "/api/v1/leave-balance/leavetype/{leaveTypeId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leave-balance/leavetype/{leaveTypeId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leave-balance - Only Manager can view their team member leave balances (Sick/Casual/Privilege: allocated/used/remaining) by leave type id",
+      "DownstreamPathTemplate": "/api/v1/leave-balance/employees/{userId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leave-balance/employees/{userId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "Key": "get-employee-leave-balances",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "user_role": "Manager"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leave-balance - Only Manager can view their team member leave balances by leave type (Sick/Casual/Privilege: allocated/used/remaining) by leave type id",
+      "DownstreamPathTemplate": "/api/v1/leave-balance/employees/{employeeId}/leavetype/{leaveTypeId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leave-balance/employees/{employeeId}/leavetype/{leaveTypeId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "user_role": "Manager"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leave-types - Get all leave types (Sick/Casual/Privilege + default allocations)",
+      "DownstreamPathTemplate": "/api/v1/leave-types",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leave-types",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "_comment": "GET /api/v1/leave-types - Get leave types by leave type id (Sick/Casual/Privilege + default allocations)",
+      "DownstreamPathTemplate": "/api/v1/leave-types/{leaveTypeId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "LEAVES-SERVICE",
+      "UpstreamPathTemplate": "/api/v1/leave-types/{leaveTypeId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    }
+  ],
+  "Aggregates": [
+    {
+      "_comment": "AGGREGATE: Manager can view Employee Leave Summary - Combines employee profile + leave balances + recent leave history in one call. GET /api/aggregate/employee-leave-summary/{employeeId}",
+      "_response": "{ employee: { id, name, role }, balances: [...], recentRequests: [...] }",
+      "RouteKeys": [
+        "get-user-by-id",
+        "get-employee-leave-balances",
+        "get-team-leave-requests-by-userId"
+      ],
+      "UpstreamPathTemplate": "/api/aggregate/employee-leave-summary/employee/{userId}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "Aggregator": "UserLeaveSummaryAggregator"
+    }
+  ],
+  "GlobalConfiguration": {
+    "_comment": "Base URL is the gateway itself. All services are resolved by Docker service names.",
+    "BaseUrl": "http://localhost:5000",
+    "ServiceDiscoveryProvider": {
+      "_comment": "Tells Ocelot to use Eureka for service discovery instead of static hosts",
+      "_requirement": "Eureka server must be running and AddEureka() must be called in Program.cs",
+      "Type": "Eureka"
+    }
+  }
+}

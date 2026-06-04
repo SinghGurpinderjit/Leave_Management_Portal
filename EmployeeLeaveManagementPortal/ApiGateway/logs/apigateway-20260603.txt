@@ -1,0 +1,260 @@
+2026-06-03 00:29:45.269 +05:30 [INF] API Gateway configured with static routing
+2026-06-03 00:29:46.085 +05:30 [INF] Ocelot configured with static DownstreamHostAndPorts
+2026-06-03 00:29:48.572 +05:30 [INF] OpenTelemetry distributed tracing configured for API Gateway
+2026-06-03 00:29:48.704 +05:30 [INF] Starting API Gateway with Static routing
+2026-06-03 00:29:49.245 +05:30 [INF] Jaeger tracing: localhost:6831
+2026-06-03 00:29:51.336 +05:30 [INF] Request to /swagger - User not authenticated
+2026-06-03 00:29:51.413 +05:30 [WRN] requestId: 0HNM0R4FLG9G7:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET.'
+2026-06-03 00:29:51.418 +05:30 [WRN] requestId: 0HNM0R4FLG9G7:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/swagger, request method: GET'
+2026-06-03 00:30:43.748 +05:30 [INF] API Gateway configured with static routing
+2026-06-03 00:30:44.050 +05:30 [INF] Ocelot configured with static DownstreamHostAndPorts
+2026-06-03 00:30:44.154 +05:30 [INF] OpenTelemetry distributed tracing configured for API Gateway
+2026-06-03 00:30:44.269 +05:30 [INF] Starting API Gateway with Static routing
+2026-06-03 00:30:44.746 +05:30 [INF] Jaeger tracing: localhost:6831
+2026-06-03 00:30:46.333 +05:30 [INF] Request to /swagger - User not authenticated
+2026-06-03 00:30:46.393 +05:30 [WRN] requestId: 0HNM0R5079UU8:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET.'
+2026-06-03 00:30:46.397 +05:30 [WRN] requestId: 0HNM0R5079UU8:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/swagger, request method: GET'
+2026-06-03 00:33:33.850 +05:30 [INF] API Gateway configured with static routing
+2026-06-03 00:33:34.411 +05:30 [INF] Ocelot configured with static DownstreamHostAndPorts
+2026-06-03 00:33:36.131 +05:30 [INF] OpenTelemetry distributed tracing configured for API Gateway
+2026-06-03 00:33:36.233 +05:30 [INF] Starting API Gateway with Static routing
+2026-06-03 00:33:36.678 +05:30 [INF] Jaeger tracing: localhost:6831
+2026-06-03 00:33:38.432 +05:30 [INF] Request to /swagger - User not authenticated
+2026-06-03 00:33:38.509 +05:30 [WRN] requestId: 0HNM0R6JF4VCF:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET.'
+2026-06-03 00:33:38.520 +05:30 [WRN] requestId: 0HNM0R6JF4VCF:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/swagger, request method: GET'
+2026-06-03 00:34:16.352 +05:30 [INF] ========== AUTHENTICATED USER CLAIMS ==========
+2026-06-03 00:34:16.355 +05:30 [INF] User Identity Name: NULL
+2026-06-03 00:34:16.357 +05:30 [INF] Authentication Type: AuthenticationTypes.Federation
+2026-06-03 00:34:16.360 +05:30 [INF] All Claims (7):
+2026-06-03 00:34:16.363 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] = Value: [22222222-2222-2222-2222-222222222222]
+2026-06-03 00:34:16.366 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] = Value: [manager.1@company.com]
+2026-06-03 00:34:16.369 +05:30 [INF]   Claim Type: [jti] = Value: [e0f0e2b3-c226-47dc-8804-36535eb7a509]
+2026-06-03 00:34:16.372 +05:30 [INF]   Claim Type: [user_role] = Value: [Manager]
+2026-06-03 00:34:16.375 +05:30 [INF]   Claim Type: [exp] = Value: [1780429254]
+2026-06-03 00:34:16.377 +05:30 [INF]   Claim Type: [iss] = Value: [MicrosoftArchitecture]
+2026-06-03 00:34:16.381 +05:30 [INF]   Claim Type: [aud] = Value: [MicrosoftArchitecture]
+2026-06-03 00:34:16.384 +05:30 [INF] ✅ ROLE CLAIMS FOUND:
+2026-06-03 00:34:16.386 +05:30 [INF]   ✅ Role Claim: [user_role] = [Manager]
+2026-06-03 00:34:16.388 +05:30 [INF] ===============================================
+2026-06-03 00:34:16.451 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/users(?:|/.*)$.'
+2026-06-03 00:34:16.475 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/users/{userId}'
+2026-06-03 00:34:16.481 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:34:16.485 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:34:16.491 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:34:16.494 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:34:16.496 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: '/api/users/{userId} route does not require user to be authorized'
+2026-06-03 00:34:16.622 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leave-balance/employees(?:|/.*)$.'
+2026-06-03 00:34:16.625 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leave-balance/employees/{userId}'
+2026-06-03 00:34:16.627 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:34:16.629 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:34:16.631 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:34:16.633 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:34:16.635 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:34:16.641 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leave-balance/employees/{userId}.'
+2026-06-03 00:34:16.651 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leaves/team(|\?)employeeId=.*$.'
+2026-06-03 00:34:16.661 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leaves/team?employeeId={userId}'
+2026-06-03 00:34:16.663 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:34:16.665 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:34:16.668 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:34:16.670 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:34:16.672 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:34:16.675 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leaves/team?employeeId={userId}.'
+2026-06-03 00:34:29.088 +05:30 [WRN] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5001/api/users/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:34:29.169 +05:30 [WRN] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: '400 (Bad Request) status code of request URI: http://localhost:5002/api/v1/leave-balance/employees/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:34:29.183 +05:30 [WRN] requestId: 0HNM0R6JF4VCI:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5002/api/v1/leaves/team?employeeId=22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:34:31.029 +05:30 [INF] >>> UserLeaveSummaryAggregator HIT
+2026-06-03 00:34:45.452 +05:30 [INF] ========== AUTHENTICATED USER CLAIMS ==========
+2026-06-03 00:34:45.454 +05:30 [INF] User Identity Name: NULL
+2026-06-03 00:34:45.456 +05:30 [INF] Authentication Type: AuthenticationTypes.Federation
+2026-06-03 00:34:45.458 +05:30 [INF] All Claims (7):
+2026-06-03 00:34:45.461 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] = Value: [22222222-2222-2222-2222-222222222222]
+2026-06-03 00:34:45.464 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] = Value: [manager.1@company.com]
+2026-06-03 00:34:45.467 +05:30 [INF]   Claim Type: [jti] = Value: [e0f0e2b3-c226-47dc-8804-36535eb7a509]
+2026-06-03 00:34:45.470 +05:30 [INF]   Claim Type: [user_role] = Value: [Manager]
+2026-06-03 00:34:45.473 +05:30 [INF]   Claim Type: [exp] = Value: [1780429254]
+2026-06-03 00:34:45.476 +05:30 [INF]   Claim Type: [iss] = Value: [MicrosoftArchitecture]
+2026-06-03 00:34:45.479 +05:30 [INF]   Claim Type: [aud] = Value: [MicrosoftArchitecture]
+2026-06-03 00:34:45.482 +05:30 [INF] ✅ ROLE CLAIMS FOUND:
+2026-06-03 00:34:45.484 +05:30 [INF]   ✅ Role Claim: [user_role] = [Manager]
+2026-06-03 00:34:45.487 +05:30 [INF] ===============================================
+2026-06-03 00:34:45.489 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/users(?:|/.*)$.'
+2026-06-03 00:34:45.492 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/users/{userId}'
+2026-06-03 00:34:45.494 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:34:45.496 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:34:45.497 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:34:45.499 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:34:45.501 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: '/api/users/{userId} route does not require user to be authorized'
+2026-06-03 00:34:45.509 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leave-balance/employees(?:|/.*)$.'
+2026-06-03 00:34:45.511 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leave-balance/employees/{userId}'
+2026-06-03 00:34:45.513 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:34:45.515 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:34:45.517 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:34:45.518 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:34:45.521 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:34:45.523 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leave-balance/employees/{userId}.'
+2026-06-03 00:34:45.541 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leaves/team(|\?)employeeId=.*$.'
+2026-06-03 00:34:45.545 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leaves/team?employeeId={userId}'
+2026-06-03 00:34:45.547 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:34:45.549 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:34:45.551 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:34:45.555 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:34:45.557 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:34:45.559 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leaves/team?employeeId={userId}.'
+2026-06-03 00:34:57.575 +05:30 [WRN] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5001/api/users/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:36:21.620 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2026-06-03 00:36:21.621 +05:30 [INF] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2026-06-03 00:36:25.269 +05:30 [INF] >>> UserLeaveSummaryAggregator HIT
+2026-06-03 00:36:32.758 +05:30 [ERR] requestId: 0HNM0R6JF4VCI:00000002, previousRequestId: No PreviousRequestId, message: 'Exception caught in global error handler, exception message: Object reference not set to an instance of an object., exception stack:    at ApiGateway.Aggregators.UserLeaveSummaryAggregator.Aggregate(List`1 responses) in C:\Users\gurpi\source\repos\Git_Leave_Management\EmployeeLeaveManagementPortal\ApiGateway\Aggregators\UserLeaveSummaryAggregator.cs:line 62
+   at Ocelot.Multiplexer.UserDefinedResponseAggregator.Aggregate(Route route, HttpContext originalContext, List`1 downstreamResponses)
+   at Ocelot.Multiplexer.MultiplexingMiddleware.ProcessRoutesAsync(HttpContext context, Route route)
+   at Ocelot.Multiplexer.MultiplexingMiddleware.Invoke(HttpContext httpContext)
+   at Ocelot.DownstreamRouteFinder.Middleware.DownstreamRouteFinderMiddleware.Invoke(HttpContext httpContext)
+   at Ocelot.Responder.Middleware.ResponderMiddleware.Invoke(HttpContext httpContext)
+   at Ocelot.Errors.Middleware.ExceptionHandlerMiddleware.Invoke(HttpContext httpContext) RequestId: 0HNM0R6JF4VCI:00000002'
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ApiGateway.Aggregators.UserLeaveSummaryAggregator.Aggregate(List`1 responses) in C:\Users\gurpi\source\repos\Git_Leave_Management\EmployeeLeaveManagementPortal\ApiGateway\Aggregators\UserLeaveSummaryAggregator.cs:line 62
+   at Ocelot.Multiplexer.UserDefinedResponseAggregator.Aggregate(Route route, HttpContext originalContext, List`1 downstreamResponses)
+   at Ocelot.Multiplexer.MultiplexingMiddleware.ProcessRoutesAsync(HttpContext context, Route route)
+   at Ocelot.Multiplexer.MultiplexingMiddleware.Invoke(HttpContext httpContext)
+   at Ocelot.DownstreamRouteFinder.Middleware.DownstreamRouteFinderMiddleware.Invoke(HttpContext httpContext)
+   at Ocelot.Responder.Middleware.ResponderMiddleware.Invoke(HttpContext httpContext)
+   at Ocelot.Errors.Middleware.ExceptionHandlerMiddleware.Invoke(HttpContext httpContext)
+2026-06-03 00:36:56.763 +05:30 [INF] ========== AUTHENTICATED USER CLAIMS ==========
+2026-06-03 00:36:56.765 +05:30 [INF] User Identity Name: NULL
+2026-06-03 00:36:56.768 +05:30 [INF] Authentication Type: AuthenticationTypes.Federation
+2026-06-03 00:36:56.775 +05:30 [INF] All Claims (7):
+2026-06-03 00:36:56.778 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] = Value: [22222222-2222-2222-2222-222222222222]
+2026-06-03 00:36:56.781 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] = Value: [manager.1@company.com]
+2026-06-03 00:36:56.789 +05:30 [INF]   Claim Type: [jti] = Value: [e0f0e2b3-c226-47dc-8804-36535eb7a509]
+2026-06-03 00:36:56.795 +05:30 [INF]   Claim Type: [user_role] = Value: [Manager]
+2026-06-03 00:36:56.799 +05:30 [INF]   Claim Type: [exp] = Value: [1780429254]
+2026-06-03 00:36:56.808 +05:30 [INF]   Claim Type: [iss] = Value: [MicrosoftArchitecture]
+2026-06-03 00:36:56.811 +05:30 [INF]   Claim Type: [aud] = Value: [MicrosoftArchitecture]
+2026-06-03 00:36:56.816 +05:30 [INF] ✅ ROLE CLAIMS FOUND:
+2026-06-03 00:36:56.819 +05:30 [INF]   ✅ Role Claim: [user_role] = [Manager]
+2026-06-03 00:36:56.824 +05:30 [INF] ===============================================
+2026-06-03 00:36:56.827 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/users(?:|/.*)$.'
+2026-06-03 00:36:56.830 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/users/{userId}'
+2026-06-03 00:36:56.832 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:36:56.838 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:36:56.841 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:36:56.844 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:36:56.847 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: '/api/users/{userId} route does not require user to be authorized'
+2026-06-03 00:36:56.856 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leave-balance/employees(?:|/.*)$.'
+2026-06-03 00:36:56.860 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leave-balance/employees/{userId}'
+2026-06-03 00:36:56.863 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:36:56.866 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:36:56.868 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:36:56.875 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:36:56.879 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:36:56.881 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leave-balance/employees/{userId}.'
+2026-06-03 00:36:56.908 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leaves/team(|\?)employeeId=.*$.'
+2026-06-03 00:36:56.925 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leaves/team?employeeId={userId}'
+2026-06-03 00:36:56.927 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:37:05.689 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:37:05.705 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:37:05.707 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:37:05.710 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:37:05.712 +05:30 [INF] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leaves/team?employeeId={userId}.'
+2026-06-03 00:37:08.825 +05:30 [WRN] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5001/api/users/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:37:09.832 +05:30 [WRN] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: '400 (Bad Request) status code of request URI: http://localhost:5002/api/v1/leave-balance/employees/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:37:09.864 +05:30 [WRN] requestId: 0HNM0R6JF4VCK:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5002/api/v1/leaves/team?employeeId=22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:37:11.826 +05:30 [INF] >>> UserLeaveSummaryAggregator HIT
+2026-06-03 00:38:12.748 +05:30 [INF] ========== AUTHENTICATED USER CLAIMS ==========
+2026-06-03 00:38:12.752 +05:30 [INF] User Identity Name: NULL
+2026-06-03 00:38:12.756 +05:30 [INF] Authentication Type: AuthenticationTypes.Federation
+2026-06-03 00:38:12.758 +05:30 [INF] All Claims (7):
+2026-06-03 00:38:12.762 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] = Value: [22222222-2222-2222-2222-222222222222]
+2026-06-03 00:38:12.766 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] = Value: [manager.1@company.com]
+2026-06-03 00:38:12.769 +05:30 [INF]   Claim Type: [jti] = Value: [e0f0e2b3-c226-47dc-8804-36535eb7a509]
+2026-06-03 00:38:12.772 +05:30 [INF]   Claim Type: [user_role] = Value: [Manager]
+2026-06-03 00:38:12.775 +05:30 [INF]   Claim Type: [exp] = Value: [1780429254]
+2026-06-03 00:38:12.779 +05:30 [INF]   Claim Type: [iss] = Value: [MicrosoftArchitecture]
+2026-06-03 00:38:12.782 +05:30 [INF]   Claim Type: [aud] = Value: [MicrosoftArchitecture]
+2026-06-03 00:38:12.785 +05:30 [INF] ✅ ROLE CLAIMS FOUND:
+2026-06-03 00:38:12.786 +05:30 [INF]   ✅ Role Claim: [user_role] = [Manager]
+2026-06-03 00:38:12.790 +05:30 [INF] ===============================================
+2026-06-03 00:38:12.791 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/users(?:|/.*)$.'
+2026-06-03 00:38:12.794 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/users/{userId}'
+2026-06-03 00:38:12.796 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:38:12.798 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:38:12.799 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:38:12.801 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:38:12.802 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: '/api/users/{userId} route does not require user to be authorized'
+2026-06-03 00:38:12.818 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leave-balance/employees(?:|/.*)$.'
+2026-06-03 00:38:12.823 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leave-balance/employees/{userId}'
+2026-06-03 00:38:12.826 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:38:12.830 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:38:12.832 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:38:12.833 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:38:12.834 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:38:12.838 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leave-balance/employees/{userId}.'
+2026-06-03 00:38:12.868 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leaves/team(|\?)employeeId=.*$.'
+2026-06-03 00:38:12.875 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leaves/team?employeeId={userId}'
+2026-06-03 00:38:12.889 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 00:38:12.892 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/22222222-2222-2222-2222-222222222222' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 00:38:12.897 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 00:38:12.900 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 00:38:12.902 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 00:38:12.905 +05:30 [INF] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leaves/team?employeeId={userId}.'
+2026-06-03 00:38:17.429 +05:30 [WRN] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5001/api/users/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:38:18.399 +05:30 [WRN] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: '400 (Bad Request) status code of request URI: http://localhost:5002/api/v1/leave-balance/employees/22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:38:18.447 +05:30 [WRN] requestId: 0HNM0R6JF4VCM:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5002/api/v1/leaves/team?employeeId=22222222-2222-2222-2222-222222222222.'
+2026-06-03 00:38:20.270 +05:30 [INF] >>> UserLeaveSummaryAggregator HIT
+2026-06-03 11:03:22.524 +05:30 [INF] API Gateway configured with static routing
+2026-06-03 11:03:23.106 +05:30 [INF] Ocelot configured with static DownstreamHostAndPorts
+2026-06-03 11:03:24.666 +05:30 [INF] OpenTelemetry distributed tracing configured for API Gateway
+2026-06-03 11:03:24.779 +05:30 [INF] Starting API Gateway with Static routing
+2026-06-03 11:03:25.297 +05:30 [INF] Jaeger tracing: localhost:6831
+2026-06-03 11:03:27.567 +05:30 [INF] Request to /swagger - User not authenticated
+2026-06-03 11:03:27.623 +05:30 [WRN] requestId: 0HNM166HD6B5R:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET.'
+2026-06-03 11:03:27.627 +05:30 [WRN] requestId: 0HNM166HD6B5R:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/swagger, request method: GET'
+2026-06-03 11:07:49.466 +05:30 [INF] API Gateway configured with static routing
+2026-06-03 11:07:50.062 +05:30 [INF] Ocelot configured with static DownstreamHostAndPorts
+2026-06-03 11:07:50.174 +05:30 [INF] OpenTelemetry distributed tracing configured for API Gateway
+2026-06-03 11:07:50.254 +05:30 [INF] Starting API Gateway with Static routing
+2026-06-03 11:07:50.701 +05:30 [INF] Jaeger tracing: localhost:6831
+2026-06-03 11:07:52.111 +05:30 [INF] Request to /swagger - User not authenticated
+2026-06-03 11:07:52.156 +05:30 [WRN] requestId: 0HNM1690BCGT5:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET.'
+2026-06-03 11:07:52.160 +05:30 [WRN] requestId: 0HNM1690BCGT5:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /swagger, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/swagger, request method: GET'
+2026-06-03 11:09:46.094 +05:30 [INF] ========== AUTHENTICATED USER CLAIMS ==========
+2026-06-03 11:09:46.097 +05:30 [INF] User Identity Name: NULL
+2026-06-03 11:09:46.099 +05:30 [INF] Authentication Type: AuthenticationTypes.Federation
+2026-06-03 11:09:46.102 +05:30 [INF] All Claims (7):
+2026-06-03 11:09:46.106 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier] = Value: [22222222-2222-2222-2222-222222222222]
+2026-06-03 11:09:46.109 +05:30 [INF]   Claim Type: [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress] = Value: [manager.1@company.com]
+2026-06-03 11:09:46.113 +05:30 [INF]   Claim Type: [jti] = Value: [ccab5a7c-a8d0-4d38-9514-1ffe7907d73b]
+2026-06-03 11:09:46.117 +05:30 [INF]   Claim Type: [user_role] = Value: [Manager]
+2026-06-03 11:09:46.122 +05:30 [INF]   Claim Type: [exp] = Value: [1780466947]
+2026-06-03 11:09:46.125 +05:30 [INF]   Claim Type: [iss] = Value: [MicrosoftArchitecture]
+2026-06-03 11:09:46.128 +05:30 [INF]   Claim Type: [aud] = Value: [MicrosoftArchitecture]
+2026-06-03 11:09:46.133 +05:30 [INF] ✅ ROLE CLAIMS FOUND:
+2026-06-03 11:09:46.136 +05:30 [INF]   ✅ Role Claim: [user_role] = [Manager]
+2026-06-03 11:09:46.140 +05:30 [INF] ===============================================
+2026-06-03 11:09:46.230 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/users(?:|/.*)$.'
+2026-06-03 11:09:46.266 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/users/{userId}'
+2026-06-03 11:09:46.275 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/0c09acd4-67d1-47a6-aca8-f322d61c6323' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 11:09:46.286 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/0c09acd4-67d1-47a6-aca8-f322d61c6323' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 11:09:46.292 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 11:09:46.294 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 11:09:46.296 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: '/api/users/{userId} route does not require user to be authorized'
+2026-06-03 11:09:46.433 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leave-balance/employees(?:|/.*)$.'
+2026-06-03 11:09:46.440 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leave-balance/employees/{userId}'
+2026-06-03 11:09:46.443 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/0c09acd4-67d1-47a6-aca8-f322d61c6323' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 11:09:46.446 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/0c09acd4-67d1-47a6-aca8-f322d61c6323' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 11:09:46.455 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 11:09:46.457 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 11:09:46.459 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 11:09:46.470 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leave-balance/employees/{userId}.'
+2026-06-03 11:09:46.487 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'Aggregation does not support body copy without Content-Length header, skipping body copy for the route ^(?i)/api/v1/leaves/team(?:|/.*)$.'
+2026-06-03 11:09:46.492 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/v1/leaves/team?employeeId={userId}'
+2026-06-03 11:09:46.494 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'The path '/api/aggregate/employee-leave-summary/employee/0c09acd4-67d1-47a6-aca8-f322d61c6323' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...'
+2026-06-03 11:09:46.497 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'Client has been authenticated for path '/api/aggregate/employee-leave-summary/employee/0c09acd4-67d1-47a6-aca8-f322d61c6323' by 'AuthenticationTypes.Federation' scheme.'
+2026-06-03 11:09:46.505 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'route is authenticated scopes must be checked'
+2026-06-03 11:09:46.508 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'user scopes is authorized calling next authorization checks'
+2026-06-03 11:09:46.511 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: 'route is authorized'
+2026-06-03 11:09:46.515 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: ' has succesfully been authorized for /api/v1/leaves/team/{userId}.'
+2026-06-03 11:10:01.141 +05:30 [INF] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: '200 (OK) status code of request URI: http://localhost:5001/api/users/0c09acd4-67d1-47a6-aca8-f322d61c6323.'
+2026-06-03 11:10:01.191 +05:30 [WRN] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: '404 (Not Found) status code of request URI: http://localhost:5002/api/v1/leaves/team?employeeId=0c09acd4-67d1-47a6-aca8-f322d61c6323.'
+2026-06-03 11:10:01.228 +05:30 [WRN] requestId: 0HNM1690BCGT8:00000001, previousRequestId: No PreviousRequestId, message: '400 (Bad Request) status code of request URI: http://localhost:5002/api/v1/leave-balance/employees/0c09acd4-67d1-47a6-aca8-f322d61c6323.'
+2026-06-03 11:10:04.548 +05:30 [INF] >>> UserLeaveSummaryAggregator HIT
