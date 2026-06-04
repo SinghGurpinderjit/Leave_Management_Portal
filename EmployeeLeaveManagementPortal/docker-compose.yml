@@ -1,0 +1,409 @@
+name: leave-management   # fixes the project name so volumes are predictable
+
+services:
+
+    # Eureka Server for Service Discovery
+    eureka:
+        image: steeltoeoss/eureka-server:latest
+        container_name: eureka-server
+        ports:
+            - "8761:8761"
+        networks:
+            - microservices-network
+        environment:
+            - EUREKA_INSTANCE_HOSTNAME=eureka
+
+    # RabbitMQ Message Broker
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        environment:
+            - RABBITMQ_DEFAULT_USER=guest
+            - RABBITMQ_DEFAULT_PASS=guest
+        networks:
+            - microservices-network
+        healthcheck:
+            test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+
+    # PostgreSQL Database
+    postgres:
+        image: postgres:16-alpine
+        container_name: postgres-db
+        ports:
+            - "5431:5432"
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=admin123
+            - POSTGRES_DB=microservices_db
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        networks:
+            - microservices-network
+        healthcheck:
+            test: [ "CMD-SHELL", "pg_isready -U admin -d microservices_db" ]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+    # User Service Instance 1
+    user-service-1:
+        container_name: user-service-1
+        build:
+            context: .
+            dockerfile: UserService/Dockerfile
+        ports:
+            - "5001:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Instance__AppName=USER-SERVICE
+            - Eureka__Instance__PreferIpAddress=true
+            - Eureka__Instance__Port=8080
+            # - RabbitMQ__HostName=rabbitmq
+            - RabbitMQ__HostName=rabbitmq
+            - RabbitMQ__Port=5672
+            - RabbitMQ__UserName=guest
+            - RabbitMQ__Password=guest
+            - RabbitMQ__VirtualHost=/
+            - RabbitMQ__ExchangeName=user.events
+            - RabbitMQ__RoutingKey=user.created
+            - RabbitMQ__MessageTtlMilliseconds=0
+            - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=microservices_users_db;Username=admin;Password=admin123
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            postgres:
+                condition: service_healthy
+            jaeger:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy
+            leaves-service-1:
+                condition: service_started
+            leaves-service-2:
+                condition: service_started
+            notification-service-1:
+                condition: service_started
+            notification-service-2:
+                condition: service_started
+
+        networks:
+            - microservices-network
+
+    # User Service Instance 2
+    user-service-2:
+        container_name: user-service-2
+        build:
+            context: .
+            dockerfile: UserService/Dockerfile
+        ports:
+            - "5002:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Instance__AppName=USER-SERVICE
+            - Eureka__Instance__PreferIpAddress=true
+            - Eureka__Instance__Port=8080
+            # - RabbitMQ__HostName=rabbitmq
+            - RabbitMQ__HostName=rabbitmq
+            - RabbitMQ__Port=5672
+            - RabbitMQ__UserName=guest
+            - RabbitMQ__Password=guest
+            - RabbitMQ__VirtualHost=/
+            - RabbitMQ__ExchangeName=user.events
+            - RabbitMQ__RoutingKey=user.created
+            - RabbitMQ__MessageTtlMilliseconds=0
+            - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=microservices_users_db;Username=admin;Password=admin123
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            postgres:
+                condition: service_healthy
+            jaeger:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy
+            leaves-service-1:
+                condition: service_started
+            leaves-service-2:
+                condition: service_started
+            notification-service-1:
+                condition: service_started
+            notification-service-2:
+                condition: service_started
+
+        networks:
+            - microservices-network
+
+    # Leave Management Service Instance 1
+    leaves-service-1:
+        container_name: leaves-service-1
+        build:
+            context: .
+            dockerfile: LeaveManagementService/Dockerfile
+        ports:
+            - "5003:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Instance__AppName=LEAVES-SERVICE
+            - Eureka__Instance__PreferIpAddress=true
+            - Eureka__Instance__Port=8080
+            - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=microservices_leaves_db;Username=admin;Password=admin123
+            # UserCreatedConsumer settings
+            - RabbitMQUserCreatedConsume__HostName=rabbitmq
+            - RabbitMQUserCreatedConsume__Port=5672
+            - RabbitMQUserCreatedConsume__UserName=guest
+            - RabbitMQUserCreatedConsume__Password=guest
+            - RabbitMQUserCreatedConsume__VirtualHost=/
+            - RabbitMQUserCreatedConsume__QueueName=leavebalance.initializing.queue
+            - RabbitMQUserCreatedConsume__ExchangeName=user.events
+            - RabbitMQUserCreatedConsume__RoutingKey=user.created
+            - RabbitMQUserCreatedConsume__MessageTtlMilliseconds=0
+            # LeaveStatusPublish settings
+            - RabbitMQLeaveStatusPublish__HostName=rabbitmq
+            - RabbitMQLeaveStatusPublish__Port=5672
+            - RabbitMQLeaveStatusPublish__UserName=guest
+            - RabbitMQLeaveStatusPublish__Password=guest
+            - RabbitMQLeaveStatusPublish__VirtualHost=/
+            - RabbitMQLeaveStatusPublish__ExchangeName=leave.events
+            - RabbitMQLeaveStatusPublish__RoutingKey=leave.statusupdated
+            - RabbitMQLeaveStatusPublish__MessageTtlMilliseconds=86400000
+            - ServiceDiscovery__UseEureka=true
+            - ServiceDiscovery__UserService__ServiceName=USER-SERVICE
+            - ServiceDiscovery__UserService__DirectUrl=http://user-service-1:8080
+            - Resilience__EnablePolly=true
+            - Serilog__MinimumLevel__Override__Steeltoe=Warning
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            postgres:
+                condition: service_healthy
+            rabbitmq:
+                condition: service_healthy
+            notification-service-1:
+                condition: service_started
+            notification-service-2:
+                condition: service_started
+            jaeger:
+                condition: service_started
+        networks:
+            - microservices-network
+   
+    leaves-service-2:
+        container_name: leaves-service-2
+        build:
+            context: .
+            dockerfile: LeaveManagementService/Dockerfile
+        ports:
+            - "5004:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Instance__AppName=LEAVES-SERVICE
+            - Eureka__Instance__PreferIpAddress=true
+            - Eureka__Instance__Port=8080
+            - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=microservices_leaves_db;Username=admin;Password=admin123
+            # UserCreatedConsumer settings
+            - RabbitMQUserCreatedConsume__HostName=rabbitmq
+            - RabbitMQUserCreatedConsume__Port=5672
+            - RabbitMQUserCreatedConsume__UserName=guest
+            - RabbitMQUserCreatedConsume__Password=guest
+            - RabbitMQUserCreatedConsume__VirtualHost=/
+            - RabbitMQUserCreatedConsume__QueueName=leavebalance.initializing.queue
+            - RabbitMQUserCreatedConsume__ExchangeName=user.events
+            - RabbitMQUserCreatedConsume__RoutingKey=user.created
+            - RabbitMQUserCreatedConsume__MessageTtlMilliseconds=0
+            # LeaveStatusPublish settings
+            - RabbitMQLeaveStatusPublish__HostName=rabbitmq
+            - RabbitMQLeaveStatusPublish__Port=5672
+            - RabbitMQLeaveStatusPublish__UserName=guest
+            - RabbitMQLeaveStatusPublish__Password=guest
+            - RabbitMQLeaveStatusPublish__VirtualHost=/
+            - RabbitMQLeaveStatusPublish__ExchangeName=leave.events
+            - RabbitMQLeaveStatusPublish__RoutingKey=leave.statusupdated
+            - RabbitMQLeaveStatusPublish__MessageTtlMilliseconds=86400000
+            - ServiceDiscovery__UseEureka=true
+            - ServiceDiscovery__UserService__ServiceName=USER-SERVICE
+            - ServiceDiscovery__UserService__DirectUrl=http://user-service-1:8080
+            - Resilience__EnablePolly=true
+            - Serilog__MinimumLevel__Override__Steeltoe=Warning
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            postgres:
+                condition: service_healthy
+            rabbitmq:
+                condition: service_healthy
+            notification-service-1:
+                condition: service_started
+            notification-service-2:
+                condition: service_started
+            # user-service-1:
+            #     condition: service_started
+            # user-service-2:
+            #     condition: service_started
+            jaeger:
+                condition: service_started
+        networks:
+            - microservices-network
+
+    # Notification Service Instance 1
+    notification-service-1:
+        container_name: notification-service-1
+        build:
+            context: .
+            dockerfile: NotificationService/Dockerfile
+        ports:
+            - "5005:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Instance__AppName=NOTIFICATION-SERVICE
+            - Eureka__Instance__PreferIpAddress=true
+            - Eureka__Instance__Port=8080
+            - RabbitMQ__LeaveStatusUpdatedConsumer__HostName=rabbitmq
+            - RabbitMQ__LeaveStatusUpdatedConsumer__MessageTtlMilliseconds=86400000
+            - Serilog__MinimumLevel__Override__Steeltoe=Warning
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy
+            jaeger:
+                condition: service_started
+        networks:
+            - microservices-network
+    
+    notification-service-2:
+        container_name: notification-service-2
+        build:
+            context: .
+            dockerfile: NotificationService/Dockerfile
+        ports:
+            - "5006:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Instance__AppName=NOTIFICATION-SERVICE
+            - Eureka__Instance__PreferIpAddress=true
+            - Eureka__Instance__Port=8080
+            - RabbitMQ__LeaveStatusUpdatedConsumer__HostName=rabbitmq
+            - RabbitMQ__LeaveStatusUpdatedConsumer__MessageTtlMilliseconds=86400000
+            - Serilog__MinimumLevel__Override__Steeltoe=Warning
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy
+            jaeger:
+                condition: service_started
+        networks:
+            - microservices-network
+
+    # API Gateway
+    api-gateway:
+        build:
+            context: .
+            dockerfile: ApiGateway/Dockerfile
+        container_name: api-gateway
+        ports:
+            - "5000:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - UseEureka=true
+            - Eureka__Client__ServiceUrl=http://eureka:8761/eureka/
+            - Eureka__Client__ShouldFetchRegistry=true
+            - Eureka__Client__ShouldRegisterWithEureka=false
+            - Serilog__MinimumLevel__Override__Steeltoe=Warning
+            - JAEGER_AGENT_HOST=jaeger
+            - JAEGER_AGENT_PORT=4317
+            - JAEGER_SAMPLER_TYPE=const
+            - JAEGER_SAMPLER_PARAM=1
+        depends_on:
+            eureka:
+                condition: service_started
+            user-service-1:
+                condition: service_started
+            user-service-2:
+                condition: service_started
+            leaves-service-1:
+                condition: service_started
+            leaves-service-2:
+                condition: service_started
+            notification-service-1:
+                condition: service_started
+            notification-service-2:
+                condition: service_started
+            jaeger:
+                condition: service_started
+        networks:
+            - microservices-network
+
+
+    # ==============================================
+    # Jaeger - Distributed Tracing
+    # ==============================================
+    jaeger:
+        image: jaegertracing/all-in-one:1.55
+        container_name: jaeger
+        ports:
+            - "5775:5775/udp" # Accept zipkin.thrift over compact thrift protocol
+            - "6831:6831/udp" # Accept jaeger.thrift over compact thrift protocol
+            - "6832:6832/udp" # Accept jaeger.thrift over binary thrift protocol
+            - "5778:5778" # Serve configs
+            - "16686:16686" # Jaeger UI
+            - "14268:14268" # Accept jaeger.thrift directly from clients
+            - "14250:14250" # Accept model.proto over gRPC
+            - "9411:9411" # Zipkin compatible endpoint
+            - "14269:14269" 
+            - "4317:4317"    # OTLP gRPC
+            - "4318:4318"    # OTLP HTTP
+        environment:
+            - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+            - COLLECTOR_OTLP_ENABLED=true
+            - LOG_LEVEL=info
+        networks:
+            - microservices-network
+        healthcheck:
+            test: [ "CMD", "wget", "--spider", "-q", "http://localhost:14269/" ]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+
+networks:
+    microservices-network:
+        driver: bridge
+
+volumes:
+    postgres-data:
