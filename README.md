@@ -115,22 +115,19 @@ docker compose version
 
 ## Clone Repository
 
-git clone <repository-url>
-cd <repository-folder>
+git clone <repository-url> // repository url: https://github.com/SinghGurpinderjit/Leave_Management_Portal.git
+cd <repository-folder> // cd EmployeeLeaveManagementPortal
 
 ## Run the Application
 
-1) Go to docker-compose.yml file path
-2) Run below command to build and start all services:
+1) Open cmd and go to docker-compose.yml file path
+2) Run below command to build all services:
    docker compose up --build
-3) Preffered to run above (step 2) command in detached mode:
-   docker compose up -d --build
-
+3) Run below command to start all services in detached mode:
+   docker compose up -d
 
 You can stop all running application services using below command:
    - docker compose down
-   - Remove containers and volumes:
-      docker compose down -v
 
 ## Access URLs
 
@@ -159,11 +156,9 @@ Major configurations include:
 
 No additional `.env` file is required for local setup.
 
-
 ## API Testing
 
 All APIs should be accessed through the API Gateway.
-
 Base URL: http://localhost:5000
 
 Suggested testing flow:
